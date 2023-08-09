@@ -19,13 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('role');
-<<<<<<< HEAD
-            $table->string('fcm_token');
-           $table->rememberToken();
-=======
             $table->string('fcm-token');
             $table->rememberToken();
->>>>>>> fa3b9f849d04e2fbba0f7ddec880d04347a9985c
             $table->timestamps();
         });
     }

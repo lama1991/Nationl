@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('uuid')->unique();
             $table->string('content');         
-            $table->bool('is_true');  
-            $table->integer('question_id');
+            $table->boolean('is_true');  
+            $table->unsignedBigInteger('question_id');
+            $table->foreign('question_id')->references('id')->on('questions');
             $table->timestamps();
         });
     }

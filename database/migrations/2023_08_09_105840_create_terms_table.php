@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('uuid')->unique();
             $table->string('name');
-            $table->integer('specializtion_id');
+            $table->unsignedBigInteger('specializtion_id');
+            $table->foreign('specializtion_id')->references('id')->on('specializations');
             $table->timestamps();
         });
     }

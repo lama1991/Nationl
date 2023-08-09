@@ -9,8 +9,8 @@ class Answer extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-       'uuid' , 'content' ,
+        
+       'uuid' , 'content' ,'is_true','question_id'
     ];
 
 }

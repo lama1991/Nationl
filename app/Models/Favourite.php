@@ -9,8 +9,8 @@ class Favourite extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-       'uuid' , 'content' , 'is_true' , 'question_id'
+        
+       'uuid' ,'user_id' , 'question_id'
     ];
 
 }

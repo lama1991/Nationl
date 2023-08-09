@@ -9,7 +9,7 @@ class Code extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+      
        'uuid' , 'value' , 'user_id' , 'specializtion_id'
     ];
 

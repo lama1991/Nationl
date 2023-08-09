@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->string('name');
             $table->string('logo');
-            $table->integer('category_id');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
             
         });
