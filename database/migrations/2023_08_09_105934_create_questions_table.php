@@ -13,19 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->unique();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('role');
-<<<<<<< HEAD
-            $table->string('fcm_token');
-           $table->rememberToken();
-=======
-            $table->string('fcm-token');
-            $table->rememberToken();
->>>>>>> fa3b9f849d04e2fbba0f7ddec880d04347a9985c
+            $table->string('content');         
+            $table->string('reference');
+            $table->integer('term_id');
+            $table->integer('specializtion_id');
+            $table->integer('college_id');
             $table->timestamps();
         });
     }
@@ -37,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('questions');
     }
 };
