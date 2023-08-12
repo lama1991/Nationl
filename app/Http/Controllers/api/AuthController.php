@@ -60,39 +60,39 @@ class AuthController
      *
      * @return \Illuminate\Http\Response
      */
-//     public function login(Request $request)
-//     {
-//         $validator =Validator::make($request->all(),[
-//             'name' => 'required',
-//             'code'=>'required'
-//         ]);
-//         if($validator->fails()){
-//             return $this->errorResponse($validator->errors(),422);
-//         }
+    public function login(Request $request)
+    {
+        $validator =Validator::make($request->all(),[
+            'name' => 'required',
+            'code'=>'required'
+        ]);
+        if($validator->fails()){
+            return $this->errorResponse($validator->errors(),422);
+        }
 
-// try {
-//     $user = User::where('name', $request['name'])->first();
+try {
+    $user = User::where('name', $request['name'])->first();
+    
+    if (!$user || !$user->codes()->where('value','=',$request['code'])) {
+        return $this->errorResponse( 'incorrect username or password',400);
+    }
+    $data['token'] = $user->createToken('apiToken')->plainTextToken;
+    $data['name'] = $user->name;
+    return $this->successResponse($data, 'User has logged in successfully.');
 
-//     if (!$user || !Hash::check($request ['password'], $user->password)) {
-//         return $this->errorResponse( 'incorrect username or password',400);
-//     }
-//     $data['token'] = $user->createToken('apiToken')->plainTextToken;
-//     $data['name'] = $user->name;
-//     return $this->successResponse($data, 'User has logged in successfully.');
+}
+        catch(\Exception $ex)
+        {
+            return $this>$this->errorResponse($ex->getMessage(),500);
+        }
 
-// }
-//         catch(\Exception $ex)
-//         {
-//             return $this>$this->errorResponse($ex->getMessage(),500);
-//         }
+    }
 
-//     }
+//   public function logout(Request $request)
+//   {
+//       auth('sanctum')->user()->tokens()->delete();
 
-  public function logout(Request $request)
-  {
-      auth('sanctum')->user()->tokens()->delete();
-
-      return $this->successResponse([],'User has logged out successfully.');
-  }
+//       return $this->successResponse([],'User has logged out successfully.');
+//   }
 
 }
