@@ -9,7 +9,11 @@
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.0",
+<<<<<<< HEAD
         "laravel/sanctum": "^3.2",
+=======
+        "laravel/sanctum": "^2.14",
+>>>>>>> bee58103d240dd20918ebc8b5365f0525750c22d
         "laravel/tinker": "^2.7"
     },
     "require-dev": {

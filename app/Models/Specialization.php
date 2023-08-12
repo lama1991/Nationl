@@ -24,5 +24,12 @@ class Specialization extends Model
     {
         return $this->hasMany(Question::class);
     }
+<<<<<<< HEAD
   
+=======
+    public function codes()
+    {
+        return $this->hasMany(Code::class);
+    }
+>>>>>>> bee58103d240dd20918ebc8b5365f0525750c22d
 }
